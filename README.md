@@ -37,7 +37,7 @@ Sample file templates:
 
      <img width="600" alt="image" src="https://user-images.githubusercontent.com/7950697/231137753-c84f0a37-9f1c-488d-9061-e562b606bea8.png">
 
-4. Add a name, file extension and filename.  
+4. Add a _name_, _file extension_ and _filename_.  
   If you want the filename to contain the name you can use the `${NAME}` variable in the filename field.  
 5. Add the code snippet you want included in the file template. 
     Below is a sample code snippet for a Compose Screen that includes a preview  
@@ -122,6 +122,36 @@ In the Compose template `NAME` is an example of a pre-defined variable.
       UseCustomVariable(banana = "Banana")
   }
   ```
+## Directives
+
+File templates use the Velocity Template Langauge (VTL). As well as using variables and plain text, you can also use directives such as `#if`, `#set` and `#foreach`.
+
+```kt
+println("Are you a Banana?")
+
+#if ($NAME == "Banana")
+println("Yes, hungry?") 
+#else 
+println("No, please don't eat me!")
+#end
+
+#set( $items = ["One", "Two", "Three"] )
+#foreach( $item in $items)
+println("$item")
+#end
+
+```
+In this example if the file name is `Banana` the generated code will be:
+
+```kt
+println("Are you a Banana?")
+
+println("Yes, hungry?") 
+
+println("One")
+println("Two")
+println("Three")
+```
 
 ### Next steps
 
@@ -132,3 +162,4 @@ Explore child templates and live templates.
 1. [Jetbrains File and Code Templates](https://www.jetbrains.com/help/idea/settings-file-and-code-templates.html)
 2. [Templates with multiple files](https://www.jetbrains.com/help/idea/2022.1/templates-with-multiple-files.html)
 3. [File template variables](https://www.jetbrains.com/help/idea/2022.1/file-template-variables.html)
+4. [Velocity - VTL Guide (Template Directives)](https://velocity.apache.org/engine/2.0/vtl-reference.html)
