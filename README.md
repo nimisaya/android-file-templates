@@ -2,13 +2,6 @@
 
 Android Studio provides you with file templates to help speed up your development. You can use the pre-defined templates or create your own.
 
-## What's in this repo?
-
-Sample file templates:
-
-- Compose Screen
-- Unit Test
-
 ## Getting Started
 
 ### Use a file template
